@@ -21502,12 +21502,13 @@
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-DTESTABLE_BUILDS",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -DTESTABLE_BUILD -strict-concurrency=minimal -Xfrontend -disable-upcoming-feature-InternalImportsByDefault -Xfrontend -disable-concurrency-checking";
+				OTHER_SWIFT_FLAGS = "$(inherited) -DTESTABLE_BUILD -strict-concurrency=minimal -swift-version 5 -disable-upcoming-feature InternalImportsByDefault -disable-upcoming-feature ImplicitStrongCapture -disable-upcoming-feature NoUseUnstructuredThrowingTask -disable-upcoming-feature UnusedImportAccess -disable-upcoming-feature AmbientImportAccess";
 				SDKROOT = iphoneos;
 				SIGNAL_BUNDLEID_PREFIX = org.customsideload;
 				SIGNAL_MERCHANTID = org.signalfoundation;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				SWIFT_STRICT_CONCURRENCY = minimal;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = NO;
 				SWIFT_UPCOMING_FEATURE_DEPRECATE_APPLICATION_MAIN = YES;
@@ -21764,12 +21765,13 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_SWIFT_FLAGS = "$(inherited) -DTESTABLE_BUILD -strict-concurrency=minimal -Xfrontend -disable-upcoming-feature-InternalImportsByDefault -Xfrontend -disable-concurrency-checking";
+				OTHER_SWIFT_FLAGS = "$(inherited) -DTESTABLE_BUILD -strict-concurrency=minimal -swift-version 5 -disable-upcoming-feature InternalImportsByDefault -disable-upcoming-feature ImplicitStrongCapture -disable-upcoming-feature NoUseUnstructuredThrowingTask -disable-upcoming-feature UnusedImportAccess -disable-upcoming-feature AmbientImportAccess";
 				SDKROOT = iphoneos;
 				SIGNAL_BUNDLEID_PREFIX = org.customsideload;
 				SIGNAL_MERCHANTID = org.signalfoundation;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				SWIFT_STRICT_CONCURRENCY = minimal;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = NO;
 				SWIFT_UPCOMING_FEATURE_DEPRECATE_APPLICATION_MAIN = YES;
@@ -22037,6 +22039,7 @@
 				SIGNAL_MERCHANTID = org.signalfoundation;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				SWIFT_STRICT_CONCURRENCY = minimal;
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = NO;
 				SWIFT_UPCOMING_FEATURE_DEPRECATE_APPLICATION_MAIN = YES;
 				SWIFT_UPCOMING_FEATURE_TYPED_THROWS = YES;
@@ -22141,6 +22144,7 @@
 				SIGNAL_MERCHANTID = org.signalfoundation;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_ENABLE_EXPLICIT_MODULES = NO;
+				SWIFT_STRICT_CONCURRENCY = minimal;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_UPCOMING_FEATURE_CONCISE_MAGIC_FILE = NO;
 				SWIFT_UPCOMING_FEATURE_DEPRECATE_APPLICATION_MAIN = YES;

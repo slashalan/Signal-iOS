@@ -1113,20 +1113,24 @@ public final class AttachmentApprovalViewController: UIPageViewController, UIPag
             // Setter updates UI.
             self?.outputImageQuality = .standard
         }
-        sdQualityItem.subtitle = OWSLocalizedString(
-            "ATTACHMENT_APPROVAL_MEDIA_QUALITY_STANDARD_OPTION_SUBTITLE",
-            comment: "Subtitle for the 'standard' option for media quality.",
-        )
+        if #available(iOS 16.0, *) {
+            sdQualityItem.subtitle = OWSLocalizedString(
+                "ATTACHMENT_APPROVAL_MEDIA_QUALITY_STANDARD_OPTION_SUBTITLE",
+                comment: "Subtitle for the 'standard' option for media quality.",
+            )
+        }
         sdQualityItem.state = outputImageQuality == .standard ? .on : .off
 
         let hdQualityItem = UIAction(title: ImageQuality.high.localizedString) { [weak self] _ in
             // Setter updates UI.
             self?.outputImageQuality = .high
         }
-        hdQualityItem.subtitle = OWSLocalizedString(
-            "ATTACHMENT_APPROVAL_MEDIA_QUALITY_HIGH_OPTION_SUBTITLE",
-            comment: "Subtitle for the 'high' option for media quality.",
-        )
+        if #available(iOS 16.0, *) {
+            hdQualityItem.subtitle = OWSLocalizedString(
+                "ATTACHMENT_APPROVAL_MEDIA_QUALITY_HIGH_OPTION_SUBTITLE",
+                comment: "Subtitle for the 'high' option for media quality.",
+            )
+        }
         hdQualityItem.state = outputImageQuality == .high ? .on : .off
 
         return UIMenu(

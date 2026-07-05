@@ -3,7 +3,7 @@
 // SPDX-License-Identifier: AGPL-3.0-only
 //
 
-private import PureLayout
+import PureLayout
 private import SignalServiceKit
 import UIKit
 
