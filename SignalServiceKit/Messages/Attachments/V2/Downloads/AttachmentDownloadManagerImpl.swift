@@ -541,7 +541,7 @@ public class AttachmentDownloadManagerImpl: AttachmentDownloadManager {
             return
         }
 
-        Task { [weak self] in
+        _ = Task { [weak self] in
             try await self?.queueLoader.loadAndRunTasks()
         }
     }

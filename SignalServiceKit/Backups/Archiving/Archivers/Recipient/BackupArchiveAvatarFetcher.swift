@@ -51,7 +51,7 @@ public class BackupArchiveAvatarFetcher {
             ),
         )
         appReadiness.runNowOrWhenMainAppDidBecomeReadyAsync { [weak self] in
-            Task { [weak self] in
+            _ = Task { [weak self] in
                 try await self?.runIfNeeded()
             }
             self?.startObserving()
