@@ -6,12 +6,15 @@ on:
 jobs:
   build:
     name: Build Signal Unsigned IPA
-    runs-on: macos-14
+    runs-on: macos-15
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Show Xcode Version
+        run: xcodebuild -version
 
       - name: Build Dependencies
         run: |
