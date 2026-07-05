@@ -1,0 +1,45 @@
+name: Build Unsigned Signal IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Signal Unsigned IPA
+    runs-on: macos-14
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build Dependencies
+        run: |
+          make dependencies
+
+      - name: Build Unsigned App
+        run: |
+          xcodebuild build \
+            -workspace Signal.xcworkspace \
+            -scheme Signal \
+            -configuration Release \
+            -derivedDataPath build \
+            -destination 'generic/platform=iOS' \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            PROVISIONING_PROFILE_SPECIFIER=""
+
+      - name: Package Unsigned IPA
+        run: |
+          mkdir -p build/Payload
+          cp -r build/Build/Products/Release-iphoneos/Signal.app build/Payload/
+          cd build
+          zip -r Signal.ipa Payload
+          echo "IPA packaged successfully."
+
+      - name: Upload IPA Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Signal-Unsigned-IPA
+          path: build/Signal.ipa
