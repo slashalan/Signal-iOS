@@ -175,7 +175,7 @@ class BadgeThanksSheet: OWSTableSheetViewController {
         case .badgeRedeemedViaBankPayment, .badgeRedeemedViaNonBankPayment:
             // Capture this value on the main thread.
             let shouldMakeVisibleAndPrimary = self.shouldMakeVisibleAndPrimary
-            Task {
+            _ = Task {
                 try await self.saveVisibilityChanges(shouldMakeVisibleAndPrimary: shouldMakeVisibleAndPrimary)
             }
         case let .giftReceived(_, notNowAction, _):

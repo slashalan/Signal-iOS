@@ -58,7 +58,7 @@ class InternalMiscActionsViewController: OWSTableViewController2 {
                         remoteReleaseNotesService: DependenciesBridge.shared.remoteReleaseNotesService,
                         releaseNoteStore: ReleaseNoteStore(),
                     )
-                    Task {
+                    _ = Task {
                         try await remoteReleaseNotesFetchingManager.syncRemoteReleaseNotes()
                     }
                 },

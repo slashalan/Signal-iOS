@@ -516,7 +516,7 @@ class ProvisioningCoordinatorImpl: ProvisioningCoordinator {
             // Because link'n'sync gives us basic contact info, we don't
             // block on a contact sync after doing one. We still do the
             // contact sync in the background to get contact avatars.
-            Task {
+            _ = Task {
                 try await doSyncsAndRestores()
             }
         } else {

@@ -122,14 +122,14 @@ public class BackupArchiveAvatarFetcher {
 
     @objc
     private func didUpdateRegistrationState() {
-        Task {
+        _ = Task {
             try await runIfNeeded()
         }
     }
 
     @objc
     private func reachabililityDidChange() {
-        Task {
+        _ = Task {
             try await runIfNeeded()
         }
     }

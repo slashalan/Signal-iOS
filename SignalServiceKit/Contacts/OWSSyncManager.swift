@@ -31,7 +31,7 @@ public class OWSSyncManager {
                 if TSAccountManagerObjcBridge.isPrimaryDeviceWithMaybeTransaction {
                     // syncAllContactsIfNecessary will skip if nothing has changed,
                     // so this won't yield redundant traffic.
-                    Task {
+                    _ = Task {
                         try await self.syncAllContactsIfNecessary()
                     }
                 } else {
@@ -54,7 +54,7 @@ public class OWSSyncManager {
     @objc
     private func signalAccountsDidChange(_ notification: AnyObject) {
         AssertIsOnMainThread()
-        Task {
+        _ = Task {
             try await self.syncAllContactsIfNecessary()
         }
     }
@@ -62,7 +62,7 @@ public class OWSSyncManager {
     @objc
     private func registrationStateDidChange(_ notification: AnyObject) {
         AssertIsOnMainThread()
-        Task {
+        _ = Task {
             try await self.syncAllContactsIfNecessary()
         }
     }
@@ -70,7 +70,7 @@ public class OWSSyncManager {
     @objc
     private func willEnterForeground(_ notification: AnyObject) {
         AssertIsOnMainThread()
-        Task {
+        _ = Task {
             try await self.syncAllContactsIfFullSyncRequested()
         }
     }

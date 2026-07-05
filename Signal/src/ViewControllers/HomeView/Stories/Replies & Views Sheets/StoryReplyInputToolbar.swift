@@ -465,7 +465,7 @@ class StoryReplyInputToolbar: UIView, BodyRangesTextViewDelegate {
 
     private func didTapSend() {
         textView.acceptAutocorrectSuggestion()
-        Task {
+        _ = Task {
             try await delegate?.storyReplyInputToolbarDidTapSend(self)
         }
     }

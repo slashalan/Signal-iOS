@@ -42,7 +42,7 @@ public func withUncooperativeTimeout<T>(seconds: TimeInterval, operation: @escap
                 takeContinuation()?.resume(throwing: error)
             }
         }
-        Task {
+        _ = Task {
             try await Task.sleep(nanoseconds: seconds.clampedNanoseconds)
             takeContinuation()?.resume(throwing: UncooperativeTimeoutError())
         }

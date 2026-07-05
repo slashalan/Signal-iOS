@@ -264,7 +264,7 @@ public class OWSMessageDecrypter {
 
             let identityKeyMismatchManager = DependenciesBridge.shared.identityKeyMismatchManager
             identityKeyMismatchManager.recordSuspectedIssueWithPniIdentityKey(tx: transaction)
-            Task {
+            _ = Task {
                 try await identityKeyMismatchManager.validateLocalPniIdentityKeyIfNecessary()
             }
 

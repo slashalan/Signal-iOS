@@ -108,7 +108,7 @@ class GroupCallRecordRingingCleanupManager {
         }
 
         for (groupId, callRecords) in callRecordsByGroupId {
-            Task {
+            _ = Task {
                 try await peekGroupAndNotifyIfNecessary(
                     groupId: groupId,
                     callRecords: callRecords,
