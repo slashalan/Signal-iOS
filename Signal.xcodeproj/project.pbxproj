@@ -21502,7 +21502,7 @@
 					"-DNS_BLOCK_ASSERTIONS=1",
 					"-DTESTABLE_BUILDS",
 				);
-				OTHER_SWIFT_FLAGS = "$(inherited) -DTESTABLE_BUILD -strict-concurrency=minimal";
+				OTHER_SWIFT_FLAGS = "$(inherited) -DTESTABLE_BUILD -strict-concurrency=minimal -Xfrontend -disable-upcoming-feature-InternalImportsByDefault";
 				SDKROOT = iphoneos;
 				SIGNAL_BUNDLEID_PREFIX = org.customsideload;
 				SIGNAL_MERCHANTID = org.signalfoundation;
@@ -21764,7 +21764,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				OTHER_SWIFT_FLAGS = "$(inherited) -DTESTABLE_BUILD -strict-concurrency=minimal";
+				OTHER_SWIFT_FLAGS = "$(inherited) -DTESTABLE_BUILD -strict-concurrency=minimal -Xfrontend -disable-upcoming-feature-InternalImportsByDefault";
 				SDKROOT = iphoneos;
 				SIGNAL_BUNDLEID_PREFIX = org.customsideload;
 				SIGNAL_MERCHANTID = org.signalfoundation;
