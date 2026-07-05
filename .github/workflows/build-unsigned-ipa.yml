@@ -31,7 +31,7 @@ jobs:
           xcodebuild build \
             -workspace Signal.xcworkspace \
             -scheme Signal \
-            -configuration Release \
+            -configuration "Testable Release" \
             -derivedDataPath build \
             -destination 'generic/platform=iOS' \
             CODE_SIGNING_ALLOWED=NO \
@@ -42,7 +42,7 @@ jobs:
       - name: Package Unsigned IPA
         run: |
           mkdir -p build/Payload
-          cp -r build/Build/Products/Release-iphoneos/Signal.app build/Payload/
+          cp -r build/Build/Products/*-iphoneos/Signal.app build/Payload/
           cd build
           zip -r Signal.ipa Payload
           echo "IPA packaged successfully."
