@@ -254,7 +254,7 @@ public class ChatListViewController: OWSViewController, HomeTabViewController {
             }
         }
 
-        Task { try await self.checkForFailedServiceExtensionLaunches() }
+        _ = Task { try await self.checkForFailedServiceExtensionLaunches() }
 
         if viewState.multiSelectState.isActive {
             showToolbar()

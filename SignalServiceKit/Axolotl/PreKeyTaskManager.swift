@@ -497,7 +497,7 @@ struct PreKeyTaskManager {
             await db.awaitableWrite { tx in
                 self.persistStateAfterUpload(bundle: bundle, tx: tx)
             }
-            Task {
+            _ = Task {
                 try await self.messageProcessor.waitForFetchingAndProcessing()
                 await self.db.awaitableWrite { tx in self.cullStateAfterMessageProcessing(tx: tx) }
             }
