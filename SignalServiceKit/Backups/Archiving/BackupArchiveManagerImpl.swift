@@ -1327,15 +1327,11 @@ public class BackupArchiveManagerImpl: BackupArchiveManager {
             )
 
             tx.addSyncCompletion { [self] in
-                Task {
-                    // Kick off avatar fetches enqueued during restore.
-                    try await avatarFetcher.runIfNeeded()
-                }
+                // Kick off avatar fetches enqueued during restore.
+                _ = Task { try await avatarFetcher.runIfNeeded() }
 
-                Task {
-                    // Kick off attachment downloads enqueued during restore.
-                    try await backupAttachmentCoordinator.restoreAttachmentsIfNeeded()
-                }
+                // Kick off attachment downloads enqueued during restore.
+                _ = Task { try await backupAttachmentCoordinator.restoreAttachmentsIfNeeded() }
 
                 // We may have inserted disappearing messages, so we need to let
                 // the expiration job know.
