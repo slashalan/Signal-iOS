@@ -932,10 +932,11 @@ extension OWSUserProfile {
             // control character, has a series of whitespaces, and then has
             // user-visible characters, and if we truncate those user visible
             // characters, we'll be left with a value that's now considered empty.
-            guard let strippedTruncatedString = StrippedNonEmptyString(rawValue: truncatedString) else {
+            let stringValue = truncatedString.isEmpty ? "\u{3164}" : truncatedString
+            guard let strippedTruncatedString = StrippedNonEmptyString(rawValue: stringValue) else {
                 return nil
             }
-            let dataValue = Data(strippedTruncatedString.rawValue.utf8)
+            let dataValue = Data(stringValue.utf8)
             return (
                 NameComponent(stringValue: strippedTruncatedString, dataValue: dataValue),
                 didTruncate: truncatedString != strippedString,
